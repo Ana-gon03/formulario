@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Para ti, mi amor</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#12060d;--bg2:#2b0f22;--glass:rgba(255,255,255,.055);--line:rgba(240,190,170,.22);--ink:#fdf2ee;--muted:#c9a3b0;--rose:#e8668a;--gold:#f3cfa6;--wine:#4a1230;
+color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font-family:'Poppins','Helvetica Neue',system-ui,sans-serif;font-weight:400;color:var(--ink);min-height:100vh;padding:20px 16px 12px;position:relative;overflow-x:hidden;background:radial-gradient(ellipse at 50% -10%,#5a1a3d 0,transparent 55%),radial-gradient(ellipse at 100% 100%,#3a0f2a 0,transparent 50%),linear-gradient(180deg,var(--bg2),var(--bg))}
+.fl{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.fl i{position:absolute;bottom:-30px;font-style:normal;color:var(--rose);opacity:0;animation:up 11s linear infinite}
+@keyframes up{10%{opacity:.35}100%{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+@media (prefers-reduced-motion:reduce){.fl{display:none}}
+.wrap{max-width:560px;margin:0 auto;position:relative;z-index:1}
+.hero{text-align:center;padding:14px 0 18px}
+.eyebrow{letter-spacing:.32em;font-size:.68rem;text-transform:uppercase;color:var(--gold);margin:0 0 10px}
+h1{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:2.15rem;line-height:1.15;margin:0}
+h1 em{font-style:italic;font-weight:500;color:var(--rose)}
+.orn{display:flex;align-items:center;justify-content:center;gap:12px;margin:14px auto;color:var(--gold);max-width:240px}
+.orn:before,.orn:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.orn:after{transform:scaleX(-1)}
+.hero p{margin:0 auto;max-width:430px;color:var(--muted);font-weight:300;font-size:.95rem;line-height:1.65}
+.hearts{display:flex;justify-content:center;gap:10px;margin:4px 0 16px;font-size:1.25rem}
+.hearts span{color:rgba(255,255,255,.18);transition:color .3s,transform .3s,text-shadow .3s}
+.hearts span.on{color:var(--rose);transform:scale(1.18);text-shadow:0 0 12px rgba(232,102,138,.7)}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:24px;padding:8px 22px;backdrop-filter:blur(10px);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.q{padding:20px 0;border-bottom:1px solid var(--line)}
+.q:last-child{border-bottom:0}
+.qh{display:flex;gap:14px;align-items:baseline;margin-bottom:12px}
+.num{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:1.5rem;color:var(--gold);min-width:34px}
+.qh h3{margin:0;font-size:1rem;font-weight:500;line-height:1.4}
+.qh small{display:block;color:var(--muted);font-weight:300;font-size:.78rem;margin-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding-left:48px}
+.chip{font:inherit;font-size:.88rem;color:var(--ink);background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:12px;padding:8px 15px;cursor:pointer;transition:all .18s}
+.chip:hover{border-color:var(--gold);transform:translateY(-1px)}
+.chip.on{background:linear-gradient(135deg,var(--rose),#c9456f);border-color:transparent;color:#fff;font-weight:600;box-shadow:0 6px 18px rgba(232,102,138,.4)}
+.chips.big{padding-left:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chips.big .chip{padding:22px 10px;font-size:1rem;border-radius:16px;text-align:center}
+.btn{font:inherit;font-weight:500;border:0;border-radius:14px;padding:14px 24px;cursor:pointer;color:#2a0f1f;background:linear-gradient(135deg,var(--gold),#e9a98a);text-decoration:none;display:inline-block;text-align:center;letter-spacing:.02em}
+.send{width:100%;margin-top:18px;font-size:1rem;box-shadow:0 10px 26px rgba(243,207,166,.25)}
+.btn:active{transform:translateY(2px)}
+.btn.alt{background:rgba(255,255,255,.07);color:var(--ink);border:1px solid var(--line)}
+#res{display:none;text-align:center;margin-top:18px;padding:26px 22px}
+#res h2{font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;margin:6px 0}
+#res p{color:var(--muted);font-weight:300;margin:0 0 12px;font-size:.92rem}
+#out{width:100%;min-height:150px;font:inherit;font-size:.85rem;color:var(--ink);background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:14px;padding:12px;resize:none;text-align:left}
+.row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.ok{font-size:.8rem;color:var(--gold);margin-top:10px;min-height:1em}
+.foot{text-align:center;color:var(--muted);font-size:.75rem;font-weight:300;margin:22px 0 10px;letter-spacing:.06em}
+</style>
+</head>
+<body>
+<div class="fl" id="fl"></div>
+<div class="wrap">
+  <div class="hero">
+    <p class="eyebrow">Un detalle para ti</p>
+    <h1>Quiero consentirte,<br><em>mi amor</em></h1>
+    <div class="orn">♥</div>
+    <p>Eres esa personita que hace mi vida más bonita</p>
+  </div>
+  <div class="hearts" id="hearts"><span>♥</span><span>♥</span><span>♥</span><span>♥</span></div>
+  <div class="card" id="form"></div>
+  <button class="btn send" id="send">Enviar mis respuestas 💌</button>
+  <div class="ok" id="err" style="text-align:center;color:#ff9fb4"></div>
+  <div class="card" id="res">
+    <div style="font-size:2.4rem">💖</div>
+    <h2>Gracias, mi amor</h2>
+    <p>Copia tus respuestas y mándamelas.</p>
+    <textarea id="out" readonly></textarea>
+    <div class="row"><button class="btn" id="cp">Copiar respuestas</button><a class="btn alt" id="wa" target="_blank" rel="noopener">Enviar por WhatsApp</a></div>
+    <div class="ok" id="ok"></div>
+  </div>
+  <div class="foot">Hecho con amor ♥</div>
+</div>
+<script>
+var Qs=[
+ {id:"cal",s:"Calzado (MX cm)",q:"¿Qué número de calzado eres?",h:"Talla mexicana, en centímetros",opts:["25","25.5","26","26.5","27","27.5","28","28.5","29","29.5","30"]},
+ {id:"pan",s:"Pantalón",q:"¿Qué talla de pantalón eres?",h:"Talla de cintura",opts:["28","30","32","34","36","38","40"]},
+ {id:"cam",s:"Camisa",q:"¿Qué talla de camisa eres?",h:"",opts:["XS","S","M","L","XL","XXL"]},
+ {id:"fig",s:"Figuras",q:"¿Qué prefieres: figuras de Spider-Man o de Pokémon?",h:"Elige solo una",big:1,opts:["🕷️ Spider-Man","⚡ Pokémon"]}
+];
+var A={};
+function $(i){return document.getElementById(i)}
+$("form").innerHTML=Qs.map(function(q,n){
+ return '<div class="q"><div class="qh"><span class="num">0'+(n+1)+'</span><div><h3>'+q.q+'</h3>'+(q.h?'<small>'+q.h+'</small>':'')+'</div></div><div class="chips'+(q.big?' big':'')+'">'+q.opts.map(function(o){return '<button type="button" class="chip" data-q="'+q.id+'">'+o+'</button>'}).join("")+'</div></div>';
+}).join("");
+var fl="";for(var k=0;k<14;k++)fl+='<i style="left:'+(Math.random()*100).toFixed(0)+'%;font-size:'+(12+Math.random()*16).toFixed(0)+'px;animation-delay:'+(Math.random()*11).toFixed(1)+'s;animation-duration:'+(9+Math.random()*7).toFixed(1)+'s">♥</i>';
+$("fl").innerHTML=fl;
+function hearts(){Qs.forEach(function(q,n){$("hearts").children[n].className=A[q.id]?"on":""})}
+function summary(){
+ var L=["*Respuestas de mi amor* ♥",""];
+ Qs.forEach(function(q){L.push("• *"+q.s+":* "+A[q.id])});
+ return L.join("\n");
+}
+document.addEventListener("click",function(e){
+ var c=e.target.closest(".chip");
+ if(c){
+  var id=c.dataset.q,was=c.classList.contains("on");
+  c.parentNode.querySelectorAll(".chip").forEach(function(x){x.classList.remove("on")});
+  A[id]=was?"":c.textContent;
+  if(!was)c.classList.add("on");
+  hearts();return;
+ }
+ if(e.target.id==="send"){
+  if(Qs.some(function(q){return !A[q.id]})){$("err").textContent="Faltan respuestas, mi amor ♥ Elige una opción en cada pregunta";return}
+  $("err").textContent="";var t=summary();$("out").value=t;
+  $("wa").href="https://wa.me/?text="+encodeURIComponent(t.replace(/ ?[\u{1F300}-\u{1FAFF}\uFE0F]/gu,""));
+  $("res").style.display="block";
+  $("res").scrollIntoView({behavior:"smooth",block:"start"});
+ }
+ if(e.target.id==="cp"){
+  var ta=$("out"),ok=$("ok");
+  function good(){ok.textContent="¡Copiado! Ya puedes pegarlo en el chat ♥"}
+  try{navigator.clipboard.writeText(ta.value).then(good,function(){ta.select();document.execCommand("copy");good()})}
+  catch(x){ta.select();try{document.execCommand("copy");good()}catch(y){ok.textContent="Selecciona el texto y cópialo manualmente"}}
+ }
+});
+</script>
+</body>
+</html>
