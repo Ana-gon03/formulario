@@ -41,6 +41,7 @@ h1 em{font-style:italic;font-weight:500;color:var(--rose)}
 .chip.on{background:linear-gradient(135deg,var(--rose),#c9456f);border-color:transparent;color:#fff;font-weight:600;box-shadow:0 6px 18px rgba(232,102,138,.4)}
 .chips.big{padding-left:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .chips.big .chip{padding:22px 10px;font-size:1rem;border-radius:16px;text-align:center}
+.chips.big .chip:last-child:nth-child(odd){grid-column:1/-1}
 .btn{font:inherit;font-weight:500;border:0;border-radius:14px;padding:14px 24px;cursor:pointer;color:#2a0f1f;background:linear-gradient(135deg,var(--gold),#e9a98a);text-decoration:none;display:inline-block;text-align:center;letter-spacing:.02em}
 .send{width:100%;margin-top:18px;font-size:1rem;box-shadow:0 10px 26px rgba(243,207,166,.25)}
 .btn:active{transform:translateY(2px)}
@@ -82,7 +83,7 @@ var Qs=[
  {id:"cal",s:"Calzado (MX cm)",q:"¿Qué número de calzado eres?",h:"Talla mexicana, en centímetros",opts:["25","25.5","26","26.5","27","27.5","28","28.5","29","29.5","30"]},
  {id:"pan",s:"Pantalón",q:"¿Qué talla de pantalón eres?",h:"Talla de cintura",opts:["28","30","32","34","36","38","40"]},
  {id:"cam",s:"Camisa",q:"¿Qué talla de camisa eres?",h:"",opts:["XS","S","M","L","XL","XXL"]},
- {id:"fig",s:"Figuras",q:"¿Qué prefieres: figuras de Spider-Man o de Pokémon?",h:"Elige solo una",big:1,opts:["🕷️ Spider-Man","⚡ Pokémon"]}
+ {id:"fig",s:"Le gusta más",q:"¿Cuál te gusta más?",h:"Elige solo una",big:1,opts:["🕷️ Spider-Man","⚡ Pokémon","🚗 Cars","🏹 Los juegos del hambre","🎸 Twenty One Pilots"]}
 ];
 var A={};
 function $(i){return document.getElementById(i)}
